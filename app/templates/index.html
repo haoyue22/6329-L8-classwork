@@ -1,0 +1,97 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title>Choose Your Fruits</title> 
+  </head> 
+  <body> 
+    <h1 align="center">Choose Your Fruits</h1> 
+    <br>
+    <br>
+    <p style="text-align:center;"> 
+      <img src="apple.jpg" width="150" alt="Logo"> 
+      <img src="orange.jpg" width="150" alt="Logo"> 
+      <img src="pineapple.jpg" width="150" alt="Logo"></p>
+    <br> <form method="post" onsubmit="return fruitorder()"> 
+      <table align="center" border="1" width="500"> 
+        <tr> <td>Quantity/Fruits</td>
+          <td align="30%">Type of Fruits</td> </tr> 
+          <tr> <td>Apple $1 </td>
+            <td><input type="radio" id="apple1" name="apple" value="1">One 
+              <input type="radio" id="apple2" name="apple" value="2">Two 
+              <input type="radio" id="apple3" name="apple" value="3">Three </td> </tr> 
+              <tr> <td>Orange $2 </td>
+                <td><input type="radio" id="orange1" name="orange" value="1">One 
+                  <input type="radio" id="orange2" name="orange" value="2">Two 
+                  <input type="radio" id="orange3" name="orange" value="3">Three </td> </tr> 
+                  <tr> <td>Pineapple $3 </td><td>
+                    <input type="radio" id="pineapple1" name="pineapple" value="1">One 
+                    <input type="radio" id="pineapple2" name="pineapple" value="2">Two 
+                    <input type="radio" id="pineapple3" name="pineapple" value="3">Three </td> </tr> 
+                    <tr><td><input type="submit" value="Next"></td>
+                      <td>Submit your order![Thank You]</td></tr> 
+        </table> </form> 
+            <br><br> <table align="center" border="1" width="500"> 
+              <tr> <td width="33%">Item:</td><td align="center">Type of Fruits</td> </tr> 
+              <tr> <td width="33%">Apple Quantity: </td>
+                   <td><div id="apple_quantity"></div></td> </tr>
+              <tr> <td width="33%">Orange Quantity: </td>
+                  <td><div id="orange_quantity"></div></td> </tr> 
+              <tr> <td width="33%">Pineapple Quantity: </td>
+                  <td><div id="pineapple_quantity"></div></td> </tr> 
+              <tr> <td width="33%">Total Price: </td>
+                   <td><div id="total_price"></div></td> </tr> </table>
+  <script>
+  function fruitorder() {
+      let apple_qty = 0;
+      let orange_qty = 0;
+      let pineapple_qty = 0;
+      let total_price = 0;
+  
+      if (document.getElementById("apple1").checked == true) {
+          apple_qty = 1;
+          total_price += apple_qty * 1;
+      }
+      if (document.getElementById("apple2").checked == true) {
+          apple_qty = 2;
+          total_price += apple_qty * 1;
+      }
+      if (document.getElementById("apple3").checked == true) {
+          apple_qty = 3;
+          total_price += apple_qty * 1;
+      }
+  
+      if (document.getElementById("orange1").checked == true) {
+          orange_qty = 1;
+          total_price += orange_qty * 2;
+      }
+      if (document.getElementById("orange2").checked == true) {
+          orange_qty = 2;
+          total_price += orange_qty * 2;
+      }
+      if (document.getElementById("orange3").checked == true) {
+          orange_qty = 3;
+          total_price += orange_qty * 2;
+      }
+  
+      if (document.getElementById("pineapple1").checked == true) {
+          pineapple_qty = 1;
+          total_price += pineapple_qty * 3;
+      }
+      if (document.getElementById("pineapple2").checked == true) {
+          pineapple_qty = 2;
+          total_price += pineapple_qty * 3;
+      }
+      if (document.getElementById("pineapple3").checked == true) {
+          pineapple_qty = 3;
+          total_price += pineapple_qty * 3;
+      }
+  
+      document.getElementById("apple_quantity").innerHTML = apple_qty;
+      document.getElementById("orange_quantity").innerHTML = orange_qty;
+      document.getElementById("pineapple_quantity").innerHTML = pineapple_qty;
+      document.getElementById("total_price").innerHTML = "$" + total_price.toFixed(2);
+  
+      return false;
+  }
+  </script>
+  </body> </html>
